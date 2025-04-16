@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Cabin:600|Amiko" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
+    <!-- Left sidebar -->
+    <div class="p-8 flex flex-col justify-between h-full">
+        <div>
+            <h1 class="text-3xl">Jonas</h1>
+            <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
+            <nav class="flex flex-col space-y-2">
+                <a href="#" class="text-base hover:text-red-800 transition">Bio</a>
+                <a href="#" class="text-base hover:text-red-800 transition">Gallery</a>
+                <a href="#" class="text-base hover:text-red-800 transition">Instagram</a>
+                <a href="#" class="text-base hover:text-red-800 transition">Contact</a>
+            </nav>
+        </div>
+        <div class="flex space-x-4 ml-3">
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-twitter text-xl"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main image area -->
+    <div class="w-3/4 h-full">
+        <img src="/Rome.jpg" alt="Photography work" class="object-scale-down max-h-full drop-shadow-md m-auto p-8">
+    </div>
+</body>
+
+</html>

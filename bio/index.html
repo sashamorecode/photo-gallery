@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas - Biography</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Cabin:600|Amiko" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bio-content {
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #333 transparent;
+        }
+
+        .bio-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .bio-content::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
+    <!-- Left sidebar - same as index.html -->
+    <div class="p-8 flex flex-col justify-between h-full">
+        <div>
+            <h1 class="text-3xl">Jonas</h1>
+            <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
+            <nav class="flex flex-col space-y-2">
+                <a href="/" class="text-base hover:text-red-800 transition">Home</a>
+                <a href="/bio" class="text-base text-red-800 hover:text-red-600 transition">Bio</a>
+                <a href="/gallery" class="text-base hover:text-red-800 transition">Gallery</a>
+                <a href="#" class="text-base hover:text-red-800 transition">Instagram</a>
+                <a href="/contact" class="text-base hover:text-red-800 transition">Contact</a>
+            </nav>
+        </div>
+        <div class="flex space-x-4 ml-3">
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-twitter text-xl"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bio content area -->
+    <div class="w-3/4 h-full p-8 overflow-hidden">
+        <div class="bio-content pr-4">
+            <h1 class="text-4xl font-cabin font-[600] mb-6">Biography</h1>
+
+            <div class="flex mb-8">
+                <div class="w-1/3 pr-8">
+                    <img src="./portrait.jpg" alt="Jonas Portrait" class="w-full rounded-lg shadow-lg">
+                </div>
+                <div class="w-2/3">
+                    <p class="mb-4 text-gray-300 leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean
+                        sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+                        nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                        sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                    <p class="mb-4 text-gray-300 leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+                        pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean
+                        sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa
+                        nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti
+                        sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/photo-gallery/navbar.css">
     <link rel="stylesheet" href="/photo-gallery/gallery/gallery.css">
-   </head>
+</head>
 
 <body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
     <!-- Mobile menu button (hidden on desktop) -->
@@ -21,10 +21,10 @@
     </div>
 
     <!-- Left sidebar -->
-    <div class="p-0 md:p-8 flex flex-col justify-between h-full">
+    <div class="p-0 lg:p-8 flex flex-col justify-between h-full">
         <div id="nav-content" class="flex-grow lg:block hidden max-w:[30%]">
             <div>
-                <div class = "hidden md:block">
+                <div class="hidden lg:block">
                     <h1 class="text-3xl">Jonas</h1>
                     <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
                 </div>
@@ -49,9 +49,9 @@
     </div>
 
     <!-- Gallery content -->
-    <div class="h-full p-10 pt-3 pl-12 md:p-8 overflow-y-auto">
-        <h1 class="text-4xl font-[400] mb-4 md:hidden">Gallery</h1>
-        <div class="grid grid-cols-2 gap-6">
+    <div class="h-full w-full lg:p-8 overflow-scroll">
+        <h1 class="text-4xl font-[400] pl-12 pt-3 lg:hidden">Gallery</h1>
+        <div class="grid grid-cols-2 gap-6 p-4 overflow-y-auto max-h-[95vh]">
             <!-- Gallery Item 1 -->
             <div class="relative cursor-pointer" onclick="openSlideshow(0)">
                 <img src="./1.jpg" alt="Urban Landscape" class="w-full h-auto gallery-image rounded-lg shadow-lg">
@@ -173,7 +173,7 @@
                 }
             }
         });
-                 // Toggle mobile menu
+        // Toggle mobile menu
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const navContent = document.getElementById('nav-content');
             navContent.classList.toggle('hidden');

@@ -118,6 +118,8 @@
         ];
 
         let currentSlideIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
         function openSlideshow(index) {
             currentSlideIndex = index;
@@ -172,6 +174,25 @@
                 }
             }
         });
+         // Touch event handlers for swipe navigation
+        document.getElementById('slideshow-image').addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.getElementById('slideshow-image').addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - next slide
+                changeSlide(1);
+            } else if (touchEndX > touchStartX + 50) {
+                // Swipe right - previous slide
+                changeSlide(-1);
+            }
+        }
         // Toggle mobile menu
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const navContent = document.getElementById('nav-content');

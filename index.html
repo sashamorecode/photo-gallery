@@ -8,23 +8,32 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Cabin:600|Amiko" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/photo-gallery/navbar.css">
 </head>
 
 <body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
+    <!-- Mobile menu button (hidden on desktop) -->
+    <div class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] position: absolute">
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
     <!-- Left sidebar -->
     <div class="p-8 flex flex-col justify-between h-full">
-        <div>
-            <h1 class="text-3xl">Jonas</h1>
-            <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
-            <nav class="flex flex-col space-y-2">
-                <a href="/photo-gallery/" class="text-base text-red-800 hover:text-red-300 transition">Home</a>
-                <a href="/photo-gallery/bio" class="text-base hover:text-red-800 transition">Bio</a>
-                <a href="/photo-gallery/gallery" class="text-base hover:text-red-800 transition">Gallery</a>
-                <a href="#" class="text-base hover:text-red-800 transition">Instagram</a>
-                <a href="/photo-gallery/contact" class="text-base hover:text-red-800 transition">Contact</a>
-            </nav>
+        <div id="nav-content" class="flex-grow lg:block hidden max-w:[30%]">
+            <div>
+                <h1 class="text-3xl">Jonas</h1>
+                <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
+                <nav class="flex flex-col space-y-2">
+                    <a href="/photo-gallery/" class="text-base text-red-800 hover:text-red-300 transition">Home</a>
+                    <a href="/photo-gallery/bio" class="text-base hover:text-red-800 transition">Bio</a>
+                    <a href="/photo-gallery/gallery" class="text-base hover:text-red-800 transition">Gallery</a>
+                    <a href="#" class="text-base hover:text-red-800 transition">Instagram</a>
+                    <a href="/photo-gallery/contact" class="text-base hover:text-red-800 transition">Contact</a>
+                </nav>
+            </div>
         </div>
-        <div class="flex space-x-4 ml-3">
+        <div class="flex space-x-4 ml-3 lg:block hidden">
             <a href="#" class="hover:text-gray-300 transition">
                 <i class="fab fa-instagram text-xl"></i>
             </a>
@@ -38,6 +47,35 @@
     <div class="w-3/4 h-full">
         <img src="./Rome.jpg" alt="Photography work" class="object-scale-down max-h-full drop-shadow-md m-auto p-8">
     </div>
+    <script>
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const navContent = document.getElementById('nav-content');
+            navContent.classList.toggle('hidden');
+
+            // Change icon based on menu state
+            const icon = this.querySelector('i');
+            if (navContent.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close menu when clicking on a link (for mobile)
+        document.querySelectorAll('#nav-content a').forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 1024) { // lg breakpoint
+                    document.getElementById('nav-content').classList.add('hidden');
+                    const icon = document.getElementById('mobile-menu-button').querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Cabin:600|Amiko" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/photo-gallery/navbar.css">
+</head>
+
+<body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
+    <!-- Mobile menu button (hidden on desktop) -->
+    <div class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] position: absolute">
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+    <!-- Left sidebar -->
+    <div class="p-0 lg:p-8 flex flex-col justify-between h-full">
+        <div id="nav-content" class="flex-grow lg:block hidden max-w:[30%]">
+            <div>
+                <div class="hidden lg:block">
+                    <h1 class="text-3xl">Jonas</h1>
+                    <h2 class="text-base mb-8 text-gray-600">PHOTOGRAPHER</h2>
+                </div>
+                <nav class="flex flex-col space-y-2">
+                    <a href="/photo-gallery/" class="text-base hover:text-red-800 transition">Home</a>
+                    <a href="/photo-gallery/bio" class="text-base hover:text-red-800 transition">Bio</a>
+                    <a href="/photo-gallery/gallery" class="text-base hover:text-red-800 transition">Gallery</a>
+                    <a href="#" class="text-base hover:text-red-800 transition">Instagram</a>
+                    <a href="/photo-gallery/contact"
+                        class="text-base text-red-800 hover:text-red-300 transition">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <div class="flex space-x-4 ml-3 lg:block hidden">
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="hover:text-gray-300 transition">
+                <i class="fab fa-twitter text-xl"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main image area -->
+    <div class="w-full h-full">
+        <h1 class="text-4xl font-cabin font-[400] pl-12 pt-3 pb-4 lg:hidden">Contact</h1>
+        <div class="overflow-scroll p-4 max-w-lg m-auto lg:absolute lg:p-8 lg:w-full lg:left-1/2 lg:transform lg:-translate-x-1/2 ">
+            <h1 class="text-4xl mb:text-3xl text-center font-[300] ">Message Me</h1>
+            <form class="space-y-6 p-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-1">Name *</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 bg-gray-600 border border-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-red-800">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-1">Email *</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 bg-gray-600 border border-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-red-800">
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-sm font-medium mb-1">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone"
+                        class="w-full px-4 py-2 bg-gray-600 border border-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-red-800">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-1">Message *</label>
+                    <textarea id="message" name="message" rows="4" required
+                        class="w-full px-4 py-2 bg-gray-600 border border-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-red-800"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-2 px-4 bg-red-800 hover:bg-red-700 text-white font-medium rounded transition duration-300">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const navContent = document.getElementById('nav-content');
+            navContent.classList.toggle('hidden');
+
+            // Change icon based on menu state
+            const icon = this.querySelector('i');
+            if (navContent.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close menu when clicking on a link (for mobile)
+        document.querySelectorAll('#nav-content a').forEach(link => {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 1024) { // lg breakpoint
+                    document.getElementById('nav-content').classList.add('hidden');
+                    const icon = document.getElementById('mobile-menu-button').querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

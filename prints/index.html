@@ -76,13 +76,14 @@
                         <img id="current-print" class="h-[80vh] object-contain">
                         <div id="print-caption" class="text-right mt-4 text-gray-300 text-lg"></div>
                     </div>
-                    <div id="sell-info-container" class="h-[80vh] w-[25vw] border-2 border-red-700 rounded-lg p-4 relative top-[-0.5em]
+                    <div id="sell-info-container" class="h-[80vh] w-[25vw] rounded-lg p-4 relative top-[-0.5em]
                             bg-black/50">
                         <h2 id="print-sell-title" class="text-2xl font-bold">Should be replaced</h2>
                         <p id="print-sell-description" class="text-gray-300 mb-4">Should be replaced Desc</p>
                         <div class="flex justify-between items-center mb-2">
                             <span class="font-bold">Size:</span>
-                            <select id="print-size-select" class="rounded font-bold bg-black/40 py-1 px-2 text-align-last">
+                            <select id="print-size-select"
+                                class="rounded font-bold bg-black/40 py-1 px-2 text-align-last">
                                 <option id="size-opt">Select Size</option>
                             </select>
                         </div>
@@ -91,7 +92,8 @@
                             <p id="print-price" class="text-lg font-bold">€</p>
                         </div>
                         <div class="flex justify-end">
-                            <button class="bg-red-800 hover:bg-red-600 px-2 font-bold text-xl rounded">Request
+                            <button id="print-request-button"
+                                class="bg-red-800 hover:bg-red-600 px-2 font-bold text-xl rounded">Request
                                 Print</button>
                         </div>
                     </div>
@@ -122,7 +124,20 @@
                         ]
                     }
                 };
-
+                document.getElementById('print-request-button').addEventListener('click', () => {
+                    const printSizeSelect = document.getElementById('print-size-select');
+                    if (printSizeSelect.selectedIndex === 0) {return }
+                    const printPrice = document.getElementById('print-price').innerHTML;
+                    const printName = document.getElementById('print-sell-title').innerHTML;
+                    const printSize = printSizeSelect.selectedOptions[0].innerHTML
+                    const mailLink = `mailto:test-sales-email@gmail.com?
+                        subject=Request%20for%20Print&
+                        body=Hi%2C%0A%0AI%20would%20like%20to%20buy%3A%0A%5B`
+                        + printName + `%5D%2C%0A%5B`
+                        + printSize + `%5D%0Afor%20%0A%5B`
+                        + printPrice + `%5D%0A%0A%0A%0A`;
+                    window.open(mailLink);
+                });
                 document.getElementById('print-size-select').addEventListener('change', (item) => {
                     document.getElementById('print-price').innerHTML = item.target.selectedOptions[0].value + " €";
                 });

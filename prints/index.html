@@ -130,9 +130,9 @@
                     const printPrice = document.getElementById('print-price').innerHTML;
                     const printName = document.getElementById('print-sell-title').innerHTML;
                     const printSize = printSizeSelect.selectedOptions[0].innerHTML
-                    const mailLink = `mailto:test-sales-email@gmail.com?
-                        subject=Request%20for%20Print&
-                        body=Hi%2C%0A%0AI%20would%20like%20to%20buy%3A%0A%5B`
+                    const mailLink = `mailto:test-sales-email@gmail.com?`
+                        + `subject=Request%20for%20Print&`
+                        + `body=Hi%2C%0A%0AI%20would%20like%20to%20buy%3A%0A%5B`
                         + printName + `%5D%2C%0A%5B`
                         + printSize + `%5D%0Afor%20%0A%5B`
                         + printPrice + `%5D%0A%0A%0A%0A`;

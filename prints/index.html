@@ -13,7 +13,7 @@
 
 <body class="flex h-screen bg-black text-white overflow-hidden font-amiko font-[400]">
     <!-- Mobile menu button (hidden on desktop) -->
-    <div class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] position: absolute">
+    <div class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] z-[1] absolute">
         <button id="mobile-menu-button" class="text-white focus:outline-none">
             <i class="fas fa-bars text-2xl"></i>
         </button>
@@ -50,7 +50,7 @@
     </div>
     <!-- Prints Grid -->
     <div class="w-full h-full overflow-y-auto lg:pl-4 lg:p-4">
-        <h1 class="text-4xl font-cabin font-[400] pl-12 pt-3 pb-3 absolute w-full bg-black pb-4 lg:hidden">Stories</h1>
+        <h1 class="text-4xl font-cabin font-[400] pl-12 pt-3 pb-3 absolute w-full bg-black pb-4 lg:hidden">Prints</h1>
         <div class="pt-20 lg:pt-4 grid grid-cols-2 lg:grid-cols-3 gap-6 p-4">
             <!-- Story Items -->
             <div class="print-item cursor-pointer group" id="1">

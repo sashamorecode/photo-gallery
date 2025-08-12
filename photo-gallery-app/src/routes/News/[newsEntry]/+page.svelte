@@ -23,12 +23,17 @@
 
 <Navbar />
 <div class="w-full h-full overflow-y-auto lg:p-4">
-    <div class="pt-20 lg:pt-0 p-4">
+    <h1
+        class="text-4xl font-cabin font-[400] pl-12 pt-3 absolute w-full bg-black pb-4 lg:hidden"
+    >
+        News
+    </h1>
+    <div class="lg:pt-0 p-4">
         <div id="news-detail" class="mt-8">
             <a href="/News">
                 <button
                     id="back-button"
-                    class="mb-6 flex items-center text-red-800 hover:text-red-300 transition"
+                    class="mb-6 items-center text-red-800 hover:text-red-300 transition hidden lg:flex"
                 >
                     <i class="fas fa-arrow-left mr-2"></i> Back to News
                 </button>

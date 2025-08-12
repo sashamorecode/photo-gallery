@@ -1,15 +1,23 @@
 <script>
+    function openMobileMenu() {
+        const navContent = document.getElementById("nav-content");
+        navContent.classList.toggle("hidden");
+        const icon = this.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+    }
 </script>
 
 <!-- Mobile menu button (hidden on desktop) -->
 <div>
     <div
-        class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] position: absolute"
+        class="lg:hidden flex justify-end mb-4 top-[1em] left-[1em] z-10 position: absolute"
     >
         <button
             id="mobile-menu-button"
             class="text-white focus:outline-none"
             aria-label="mobile menu"
+            onclick={openMobileMenu}
         >
             <i class="fas fa-bars text-2xl"></i>
         </button>

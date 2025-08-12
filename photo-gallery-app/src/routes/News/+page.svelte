@@ -1,8 +1,10 @@
 <script>
     import Navbar from "$lib/Navbar.svelte";
     import NewsEntry from "$lib/NewsEntry.svelte";
-    import {entries} from "./entries.js"
- </script>
+    let { data } = $props();
+    const entries = data.news;
+    console.log(entries)
+</script>
 
 <Navbar />
 
@@ -16,16 +18,15 @@
         <!-- News Grid -->
         <div id="news-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- News Item 1 -->
-            {#each entries as {coverImage, title, date, url, newsType}}
-            <NewsEntry
-                coverImage={coverImage}
-                newsTitle={title}
-                newsType={newsType}
-                newsDate={date}
-                newsUrl={url}
-            />
+            {#each entries as { coverImage, title, date, url, newsType }}
+                <NewsEntry
+                    {coverImage}
+                    newsTitle={title}
+                    {newsType}
+                    newsDate={date}
+                    newsUrl={url}
+                />
             {/each}
-
         </div>
 
         <!-- News Detail View (hidden by default) -->

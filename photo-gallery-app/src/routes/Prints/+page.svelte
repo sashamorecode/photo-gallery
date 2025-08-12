@@ -1,6 +1,10 @@
 <script>
     import Navbar from "$lib/Navbar.svelte";
-    let printListings = [
+    let { data } = $props();
+    let printListings = data.prints;
+    console.log(printListings);
+    printListings = [
+        ...printListings,
         {
             src: "/n1-1.jpg",
             title: "Print 1",
@@ -42,8 +46,8 @@
             ],
         },
     ];
-    let currentPrint = printListings[0];
-    let buyPageOpen = false;
+    let currentPrint = $state(printListings[0]);
+    let buyPageOpen = $state(false);
     function onClickListing(event) {
         currentPrint = printListings[this.id];
         buyPageOpen = true;

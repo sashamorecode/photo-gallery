@@ -70,7 +70,7 @@
                 <input
                     type="text"
                     name="coverImage"
-                    bind:value={currentNews.src}
+                    bind:value={currentNews.coverImage}
                 />
             </label>
             <label>
@@ -92,7 +92,7 @@
             </label>
             <label>
                 News Content:
-                <textarea name="content" bind:value={currentNews.value}
+                <textarea name="content" bind:value={currentNews.content}
                 ></textarea>
             </label>
             <button type="submit">Update</button>

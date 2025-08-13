@@ -1,7 +1,7 @@
 <script lang="ts">
     let { data } = $props();
-    let newsPosts = data.news;
-    let currentNews = $state(newsPosts[0]);
+    let newsPosts = $state(data.news);
+    let currentNews = $derived(newsPosts[0]);
     function addImage(): void {
         currentNews.images = [
             ...currentNews.images,
@@ -40,7 +40,14 @@
                 body: JSON.stringify(currentNews),
             });
             res.then((r) => {
-                window.location.reload();
+                let jres = r.json();
+                jres.then((jsonRes) => {
+                    if (jsonRes.success) {
+                        alert("Updated Entry Sucessfully");
+                    } else {
+                        alert("Error Occured");
+                    }
+                });
             });
         }}
         class="grid grid-cols-2 text-xl overflow-y-scroll"

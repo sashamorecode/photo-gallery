@@ -7,3 +7,15 @@ export async function DELETE({ params }) {
         success: true,
     });
 }
+
+export async function PUT({ params, request }) {
+    let id = params.id
+    const jsonData = await request.json();
+    // Build JSON object
+    // TODO: Save to database or process as needed
+    // e.g., await db.news.create({ data: jsonData });
+    db.updatePrint(id, jsonData);
+    return json({
+        success: true,
+    });
+}
